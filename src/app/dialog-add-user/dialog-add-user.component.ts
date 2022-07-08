@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/models/user.class';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 @Component({
@@ -9,16 +10,23 @@ import { User } from 'src/models/user.class';
 })
 export class DialogAddUserComponent implements OnInit {
 user = new User();
+birthDate: Date;
 
 
-  constructor() { }
+  constructor(private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
   }
 
 saveUser() {
+  this.user.birthDate = this.birthDate.getTime();
   console.log(this.user);
-
+  this.firestore
+  .collection('users')
+  .add(this.user.toJSON())
+  .then((result: any) => 
+  console.log('Adding user finished', result)
+);
 }
 
 }
