@@ -9,8 +9,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .full-width {
     width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
+
+
 .mr-32 {
-    margin-right: 32px;
+    margin-right: 16px;
+}
+
+
+.ml-32 {
+    margin-left: 16px;
+}
+
+.mat-dialog-container {
+    width: 80% !important;
 }
