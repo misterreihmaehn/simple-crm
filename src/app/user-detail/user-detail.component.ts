@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {ActivatedRoute} from '@angular/router';
 import { User } from 'src/models/user.class';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -38,11 +39,13 @@ getUser() {
 }
 
 editMenu() {
-  this.dialog.open(DialogEditAddressComponent);
+  const dialog = this.dialog.open(DialogEditAddressComponent)
+  dialog.componentInstance.user = this.user;
 }
 
 editUserDetail() {
-  this.dialog.open(DialogEditAddressComponent);
+  const dialog = this.dialog.open(DialogEditUserComponent)
+  dialog.componentInstance.user = this.user;
 }
 
 }
